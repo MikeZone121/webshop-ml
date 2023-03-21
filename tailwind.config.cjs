@@ -10,10 +10,6 @@ module.exports = {
         'gray': '#8492a6',
         'gray-light': '#d3dce6',
       },
-      spacing: {
-        '8xl': '96rem',
-        '9xl': '128rem',
-      },
     }
   },
 }

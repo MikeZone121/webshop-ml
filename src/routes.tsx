@@ -2,7 +2,8 @@ import App from ".";
 import { createBrowserRouter } from "react-router-dom";
 import Shop from "./views/Shop";
 import Contact from "./views/Contact";
-import ErrorPage from "./views/Error-page";
+import Cart from "./views/Cart";
+import ErrorPage from "./views/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/contact",
     element: <Contact />,
+  },
+  {
+    path: "/cart",
+    element: <Cart />,
   },
 ]);
 
