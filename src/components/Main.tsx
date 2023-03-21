@@ -3,7 +3,8 @@ import axios from "axios";
 
 function Main() {
   const [loading, setLoading] = useState(false);
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<any[]>([]);
+
   useEffect(() => {
     setLoading(true);
     axios({
