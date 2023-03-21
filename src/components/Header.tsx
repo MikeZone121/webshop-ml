@@ -13,7 +13,7 @@ function Header() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="dark:bg-gray-900 m-auto md:w-[80%]">
+    <div className="dark:bg-gray-900 m-auto">
       <div>
         <div className="relative">
           {/* For md screen size */}
@@ -40,17 +40,20 @@ function Header() {
               >
                 <WishListIcon width={16} height={16} />
               </button>
-              <button
-                aria-label="go to cart"
-                className="text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
-              >
-                <CartIcon width={18} height={18} />
-              </button>
+              <a href="/cart">
+                <button
+                  aria-label="go to cart"
+                  className="text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
+                >
+                  0
+                  <CartIcon width={18} height={18} />
+                </button>
+              </a>
             </div>
           </div>
           {/* For md screen size */}
           {/* For large screens */}
-          <div className="dark:bg-gray-900 bg-gray-50 px-6 py-9">
+          <div className="dark:bg-gray-900 bg-gray-50 py-9">
             <div className="container mx-auto flex items-center justify-between">
               <h1
                 className="md:w-2/12 cursor-pointer text-gray-800 text-3xl dark:text-white"
@@ -109,12 +112,15 @@ function Header() {
                   >
                     <WishListIcon width={24} height={24} />
                   </button>
-                  <button
-                    aria-label="go to cart"
-                    className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
-                    <CartIcon width={24} height={24} />
-                  </button>
+                  <a href="/cart">
+                    <button
+                      aria-label="go to cart"
+                      className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
+                    >
+                      0
+                      <CartIcon width={24} height={24} />
+                    </button>
+                  </a>
                 </div>
                 <div className="flex lg:hidden">
                   <button
@@ -165,7 +171,7 @@ function Header() {
               <ul className="flex flex-col space-y-6">
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
                   >
                     Home
@@ -176,7 +182,7 @@ function Header() {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
                   >
                     Furniture
@@ -187,7 +193,7 @@ function Header() {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
                   >
                     Lookbook
@@ -198,7 +204,7 @@ function Header() {
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
                   >
                     Support
@@ -213,18 +219,19 @@ function Header() {
               <ul className="flex flex-col space-y-8 bg-gray-50 w-full py-10 p-4 dark:bg-gray-800">
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="dark:text-white text-gray-800 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
                     <div>
                       <CartIcon width={22} height={22} />
                     </div>
                     <p className="text-base">Cart</p>
+                    <p className="text-base">0</p>
                   </a>
                 </li>
                 <li>
                   <a
-                    href="javascript:void(0)"
+                    href="#"
                     className="dark:text-white text-gray-800 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
                     <div>

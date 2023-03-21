@@ -6,3 +6,14 @@
   font-family: Roboto, sans-serif;
   font-weight: normal;
 }
+
+.container {
+  @apply
+    m-auto
+}
+
+.card {
+  @apply
+    mx-12
+    my-6
+}
