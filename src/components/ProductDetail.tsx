@@ -13,7 +13,7 @@ function ProductDetail() {
   const fetchProductDetail = async () => {
     try {
       const response = await axios.get(
-        `${import.meta.env.VITE_API_SINGLE_PRODUCT_URL}/${productId}`
+        `${import.meta.env.VITE_API_URL}/${productId}`
       );
       dispatch(selectProducts(response.data));
     } catch (err) {
