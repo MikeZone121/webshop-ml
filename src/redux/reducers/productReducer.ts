@@ -11,6 +11,7 @@ const initialSelectedProductState: ProductModel = {
   images: '',
   thumbnail: '',
   category: '',
+  brand: '',
 };
 
 export const productReducer = (

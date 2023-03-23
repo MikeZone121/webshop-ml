@@ -1,7 +1,10 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { selectProducts } from "../redux/actions/productActions";
+import {
+  selectProducts,
+  removeSelectedProducts,
+} from "../redux/actions/productActions";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 

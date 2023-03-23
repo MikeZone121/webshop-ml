@@ -14,3 +14,10 @@ export const selectProducts = (products:ProductModel[]) => {
         payload: products,
     }
 }
+
+export const removeSelectedProducts = (products:ProductModel[]) => {
+    return {
+        type: ActionTypes.REMOVE_SELECTED_PRODUCTS,
+        payload: products,
+    }
+}
