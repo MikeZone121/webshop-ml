@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ProductModel } from "./types";
 import { RootState } from "../redux/store";
-import { addToCart, Product } from "../redux/CartSlice";
+import { addToCart } from "../redux/CartSlice";
 import { useNavigate } from "react-router-dom";
 
 function Main() {
@@ -28,7 +28,7 @@ function Main() {
   const products = useSelector((state: RootState) => state.allProducts);
   const renderList = products.map((product: ProductModel) => {
     const { id, title, brand, thumbnail, price } = product;
-    const handleAddToCart = (product: Product) => {
+    const handleAddToCart = (product: ProductModel) => {
       dispatch(addToCart(product));
       navigateTo("/cart");
     };

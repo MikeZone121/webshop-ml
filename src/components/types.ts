@@ -9,8 +9,6 @@ export interface ProductModel{
     rating?:ProductRating,
     brand:string,
     name: string,
-    cartQuantity: number,
-    product: ProductModel,
 }
 
 export interface ProductRating{
@@ -19,17 +17,13 @@ export interface ProductRating{
 }
 
 
-export interface Product {
-    id: number;
-    name: string;
-    title: string,
-    price: number;
+export interface cartItem extends ProductModel{
     cartQuantity: number;
-    product: Product;
+    thumbnail:string,
 }
 
 export interface CartState {
-    cartItems: Product[];
+    cartItems: cartItem[];
     cartTotalQuantity: number;
     cartTotalAmount: number;
 }
