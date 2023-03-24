@@ -8,7 +8,6 @@ export interface ProductModel{
     category:string,
     rating?:ProductRating,
     brand:string,
-    name: string,
 }
 
 export interface ProductRating{
