@@ -49,7 +49,7 @@ function Header() {
                   aria-label="go to cart"
                   className="text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
                 >
-                  0
+                  {cart.cartTotalQuantity ?? 0}
                   <CartIcon width={18} height={18} />
                 </button>
               </a>
@@ -57,8 +57,8 @@ function Header() {
           </div>
           {/* For md screen size */}
           {/* For large screens */}
-          <div className="dark:bg-gray-900 bg-gray-50 py-9">
-            <div className="container mx-auto flex items-center justify-between">
+          <div className="dark:bg-gray-900 bg-gray-50 mb-12 shadow-sm">
+            <div className="container mx-auto flex items-center justify-between p-6">
               <h1
                 className="md:w-2/12 cursor-pointer text-gray-800 text-3xl dark:text-white"
                 aria-label="GlamGarb"
@@ -230,7 +230,7 @@ function Header() {
                       <CartIcon width={22} height={22} />
                     </div>
                     <p className="text-base">Cart</p>
-                    <p className="text-base">0</p>
+                    <p className="text-base">{cart.cartTotalQuantity ?? 0}</p>
                   </a>
                 </li>
                 <li>
