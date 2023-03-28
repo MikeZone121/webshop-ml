@@ -1,14 +1,45 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { RootState } from "../redux/store";
 import { cartItem } from "../components/types";
+import {
+  addToCart,
+  clearCart,
+  decreaseCart,
+  getTotals,
+  RemoveFromCart,
+} from "../redux/CartSlice";
+import { ProductModel } from "../components/types";
+import { useEffect } from "react";
 
 function Cart() {
-  const Cart = useSelector((state: RootState) => state.cart);
+  const cart = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [cart]);
+
+  const handleRemoveFromCart = (cartItem: ProductModel) => {
+    dispatch(RemoveFromCart(cartItem));
+  };
+
+  const handleDecreaseCart = (cartItem: ProductModel) => {
+    dispatch(decreaseCart(cartItem));
+  };
+
+  const handleIncreaseCart = (cartItem: ProductModel) => {
+    dispatch(addToCart(cartItem));
+  };
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+  };
+
   return (
     <div className="cart-container">
       <h2>Shopping Cart</h2>
-      {Cart.cartItems.length === 0 ? (
+      {cart.cartItems.length === 0 ? (
         <div className="cart-empty">
           <p>
             Your cart is empty. <br />
@@ -29,23 +60,29 @@ function Cart() {
             <h3 className="total">Total</h3>
           </div>
           <div className="cart-items">
-            {Cart.cartItems?.map((cartItem: cartItem) => (
+            {cart.cartItems?.map((cartItem: cartItem) => (
               <div className="cart-item" key={cartItem.id}>
                 <div className="cart-product">
                   <img src={cartItem.thumbnail} alt={cartItem.title} />
                   <div>
                     <h3>{cartItem.title}</h3>
                     <p>{cartItem.description}</p>
-                    <button>Remove</button>
+                    <button onClick={() => handleRemoveFromCart(cartItem)}>
+                      Remove
+                    </button>
                   </div>
                 </div>
                 <div className="cart-product-price">
                   <h3>{cartItem.price}</h3>
                 </div>
                 <div className="cart-product-quantity">
-                  <button>-</button>
+                  <button onClick={() => handleDecreaseCart(cartItem)}>
+                    -
+                  </button>
                   <div className="count">{cartItem.cartQuantity}</div>
-                  <button>+</button>
+                  <button onClick={() => handleIncreaseCart(cartItem)}>
+                    +
+                  </button>
                 </div>
                 <div className="cart-product-total-price">
                   <h3>{cartItem.price * cartItem.cartQuantity}</h3>
@@ -54,11 +91,13 @@ function Cart() {
             ))}
           </div>
           <div className="cart-summary">
-            <button className="clear-cart">Clear Cart</button>
+            <button className="clear-cart" onClick={() => handleClearCart()}>
+              Clear Cart
+            </button>
             <div className="cart-checkout">
               <div className="subtotal">
                 <span>Subtotal:</span>
-                <span className="amount">{Cart.cartTotalAmount}</span>
+                <span className="amount">{cart.cartTotalAmount}</span>
               </div>
               <p>Taxes and shipping calculated at chekout</p>
               <button>Check out</button>

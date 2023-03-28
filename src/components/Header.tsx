@@ -7,10 +7,14 @@ import {
   CloseIcon,
   ArrowRight,
 } from "../assets/img/icons";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+
 function Header() {
   const [searchInput, setSearchInput] = useState(true);
   const [mdOptionsToggle, setMdOptionsToggle] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
+  const cart = useSelector((state: RootState) => state.cart);
 
   return (
     <div className="dark:bg-gray-900 m-auto">
@@ -117,7 +121,7 @@ function Header() {
                       aria-label="go to cart"
                       className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
                     >
-                      0
+                      {cart.cartTotalQuantity ?? 0}
                       <CartIcon width={24} height={24} />
                     </button>
                   </a>
