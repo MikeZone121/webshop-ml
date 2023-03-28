@@ -32,10 +32,17 @@ function Main() {
       navigateTo("/cart");
     };
     return (
-      <div className="mx-6 my-6 px-6 flex flex-col	">
+      <div
+        key={id}
+        className="m-6 p-6 md:pb-0 flex flex-col shadow-[0_3px_10px_rgb(0,0,0,0.2)]	"
+      >
         <Link to={`/product/${id}`} key={id}>
           <div className="flex flex-col">
-            <img src={thumbnail} alt={title} className="w-[100%]" />
+            <img
+              src={thumbnail}
+              alt={title}
+              className="w-[100%] h-[200px] object-cover"
+            />
             <small className="mt-4">{brand}</small>
             <h2 className="text-xl mt-0">{title}</h2>
             <h4 className="mb-6 text-xl mt-4">€ {price}</h4>
@@ -44,7 +51,7 @@ function Main() {
         <div className="flex">
           <button
             onClick={() => handleAddToCart(product)}
-            className="border-2 border-blue text-blue hover:text-white hover:bg-blue transition ease-in-out px-6 py-2 mb-4"
+            className="border-2 border-blue text-blue hover:text-white hover:bg-blue transition ease-in-out px-6 py-2 mb-6"
           >
             Add to cart
           </button>
@@ -53,7 +60,11 @@ function Main() {
     );
   });
 
-  return <div className="grid grid-cols-4 grid-rows-4">{renderList}</div>;
+  return (
+    <div className="grid grid-cols-1 grid-rows-1 sm:grid-cols-2 sm:grid-flow-row-2 md:grid-cols-3 md:grid-rows-3 xl:grid-cols-4 xl:grid-rows-4">
+      {renderList}
+    </div>
+  );
 }
 
 export default Main;
