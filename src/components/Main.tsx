@@ -15,7 +15,6 @@ function Main() {
     try {
       const response = await axios.get(import.meta.env.VITE_API_URL);
       dispatch(setProducts(response.data));
-      console.log(response);
     } catch (err) {
       console.log(err);
     }

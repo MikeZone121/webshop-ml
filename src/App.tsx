@@ -12,10 +12,10 @@ import Footer from "./components/Footer";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ToastContainer />
-    <Header />
     <Provider store={store}>
+      <Header />
       <RouterProvider router={router} />
+      <Footer />
     </Provider>
-    <Footer />
   </React.StrictMode>
 );
