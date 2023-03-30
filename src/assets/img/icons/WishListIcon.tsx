@@ -7,7 +7,7 @@ const WishListIcon = ({
 }) => {
   return (
     <svg
-      className="fill-stroke"
+      className="fill-stroke hover:text-red-500 hover:fill-current transition ease-in-out"
       width={width}
       height={height}
       viewBox="0 0 16 16"
