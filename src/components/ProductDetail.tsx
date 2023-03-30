@@ -9,7 +9,7 @@ function ProductDetail() {
   const navigateTo = useNavigate();
   const { productId } = useParams();
 
-  const { data, isLoading } = useGetProductQuery(productId);
+  const { data, isFetching } = useGetProductQuery(productId);
 
   const handleAddToCart = (product: ProductModel) => {
     dispatch(addToCart(product));
@@ -18,7 +18,7 @@ function ProductDetail() {
 
   return (
     <>
-      {!isLoading && data ? (
+      {!isFetching && data ? (
         <div key={data.id} className="card">
           <div className="flex flex-col items-center px-6">
             <div className="text-left">
