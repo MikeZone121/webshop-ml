@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { ProductModel } from "./types";
 import { addToCart } from "../redux/CartSlice";
+import { addToWishlist } from "../redux/WishlistSlice";
 import { useNavigate } from "react-router-dom";
 import { WishListIcon } from "../assets/img/icons";
 import { useGetAllProductsQuery } from "../services/products";
@@ -18,6 +19,11 @@ function Main() {
       const handleAddToCart = (product: ProductModel) => {
         dispatch(addToCart(product));
         navigateTo("/cart");
+      };
+
+      const handleAddToWishlist = (product: ProductModel) => {
+        dispatch(addToWishlist(product));
+        navigateTo("/wishlist");
       };
 
       return (
@@ -45,6 +51,7 @@ function Main() {
               Add to cart
             </button>
             <button
+              onClick={() => handleAddToWishlist(product)}
               aria-label="view favourites"
               className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
             >

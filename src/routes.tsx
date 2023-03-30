@@ -4,6 +4,7 @@ import Contact from "./views/Contact";
 import Cart from "./views/Cart";
 import ErrorPage from "./views/ErrorPage";
 import ProductDetail from "./components/ProductDetail";
+import Wishlist from "./views/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/product/:productId",
     element: <ProductDetail />,
+  },
+  {
+    path: "/wishlist",
+    element: <Wishlist />,
   },
 ]);
 
