@@ -21,6 +21,21 @@ export interface cartItem extends ProductModel{
     thumbnail:string,
 }
 
+export interface wishlistItem extends ProductModel{
+    wishlistQuantity: number;
+}
+export interface WishlistState {
+    wishlistItems: wishlistItem[];
+    wishlistTotalQuantity: number;
+    wishlistTotalAmount: number;
+}
+
+export const initialWishlistState: WishlistState = {
+    wishlistItems: localStorage.getItem('wishlistItems') ? JSON.parse(localStorage.getItem('wishlistItems')!) : [],
+    wishlistTotalQuantity: 0,
+    wishlistTotalAmount: 0,
+}
+
 export interface CartState {
     cartItems: cartItem[];
     cartTotalQuantity: number;

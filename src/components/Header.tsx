@@ -38,12 +38,14 @@ function Header() {
               />
             </div>
             <div className="space-x-6">
-              <button
-                aria-label="view favourites"
-                className="text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
-              >
-                <WishListIcon width={16} height={16} />
-              </button>
+              <a href="/wishlist">
+                <button
+                  aria-label="view favourites"
+                  className="text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
+                >
+                  <WishListIcon width={16} height={16} />
+                </button>
+              </a>
               <a href="/cart">
                 <button
                   aria-label="go to cart"
@@ -110,12 +112,14 @@ function Header() {
                   />
                 </div>
                 <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
-                  <button
-                    aria-label="view favourites"
-                    className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
-                    <WishListIcon width={24} height={24} />
-                  </button>
+                  <a href="/wishlist">
+                    <button
+                      aria-label="view favourites"
+                      className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
+                    >
+                      <WishListIcon width={24} height={24} />
+                    </button>
+                  </a>
                   <a href="/cart">
                     <button
                       aria-label="go to cart"
@@ -235,7 +239,7 @@ function Header() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/wishlist"
                     className="dark:text-white text-gray-800 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
                     <div>
