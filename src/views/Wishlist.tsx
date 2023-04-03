@@ -46,7 +46,6 @@ function Wishlist() {
           <div className="titles">
             <h3 className="product-title">Product</h3>
             <h3 className="price">Price</h3>
-            <h3 className="quantity">Quantity</h3>
             <h3 className="total">Total</h3>
           </div>
           <div className="cart-items">
@@ -72,6 +71,14 @@ function Wishlist() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="cart-summary">
+            <button
+              className="clear-cart"
+              onClick={() => handleClearWishlist()}
+            >
+              Clear Cart
+            </button>
           </div>
           {/* TODO --> ADD TO CART BUTTON AND THEN DELETE ITEM IN WISHLIST */}
         </div>

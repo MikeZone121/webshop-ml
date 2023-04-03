@@ -20,6 +20,19 @@ const WishlistSlice = createSlice({
                 localStorage.setItem("wishlistItems", JSON.stringify(state.wishlistItems));
             },
 
+            addToCartFromWishlist(state, action: PayloadAction<ProductModel>){
+                const itemIndex = state.wishlistItems.findIndex((item) => item.id === action.payload.id);
+                if(itemIndex >= 0){
+                    state.wishlistItems[itemIndex].wishlistQuantity++;
+                    toast.info(`Increased ${state.wishlistItems[itemIndex].title} wishlist quantity`, toastConfig);
+                }else{
+                    const tempProduct = {...action.payload, wishlistQuantity: 1};
+                    state.wishlistItems.push(tempProduct);
+                    toast.success(`${action.payload.title} added to wishlist`, toastConfig);
+                    }
+                    localStorage.setItem("wishlistItems", JSON.stringify(state.wishlistItems));
+                },
+
             RemoveFromWishlist(state, action){
                 const nextwishlistItems = state.wishlistItems.filter(wishlistItem => wishlistItem.id !== action.payload.id)
                 state.wishlistItems = nextwishlistItems
