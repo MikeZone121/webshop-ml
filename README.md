@@ -94,7 +94,7 @@ This is a project to improve my react skills and prepare me for a frontend job. 
    ```
 3. Enter your API in `.env`
    ```sh
-    VITE_API_URL = 'https://dummyjson.com/';
+    VITE_API_URL=https://dummyjson.com/;
    ```
 4. Start project
    ```sh
