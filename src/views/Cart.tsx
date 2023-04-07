@@ -40,14 +40,16 @@ function Cart() {
     <div className="cart-container">
       <h2>Shopping Cart</h2>
       {cart.cartTotalQuantity === 0 ? (
-        <div className="cart-empty">
+        <div className="cart-empty text-center">
           <p>
             Your cart is empty. <br />
             <span>Go to the store and buy some products!</span>
           </p>
           <div className="start-shopping">
             <Link to="/">
-              <span>Start Shopping</span>
+              <button className="rounded-md border-2 border-blue text-blue hover:text-white hover:bg-blue transition ease-in-out px-6 py-2 my-6">
+                Start Shopping
+              </button>
             </Link>
           </div>
         </div>

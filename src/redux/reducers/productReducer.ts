@@ -1,22 +1,25 @@
-import { ActionTypes } from '../constants/action-types';
-import { ProductModel } from '../../components/types';
+import { ActionTypes } from "../constants/action-types";
+import { ProductModel } from "../../components/types";
 
 const initialProductState: ProductModel[] = [];
 
 const initialSelectedProductState: ProductModel = {
   id: 0,
-  title: '',
+  title: "",
   price: 0,
-  description: '',
-  images: '',
-  thumbnail: '',
-  category: '',
-  brand: '',
+  description: "",
+  images: "",
+  thumbnail: "",
+  category: "",
+  brand: "",
 };
 
 export const productReducer = (
   state = initialProductState,
-  action: { type: ActionTypes.SET_PRODUCTS; payload: {products: ProductModel[]} }
+  action: {
+    type: ActionTypes.SET_PRODUCTS;
+    payload: { products: ProductModel[] };
+  }
 ): ProductModel[] => {
   switch (action.type) {
     case ActionTypes.SET_PRODUCTS:
@@ -29,7 +32,7 @@ export const productReducer = (
 export const selectedProductReducer = (
   state = initialSelectedProductState,
   action: { type: ActionTypes.SELECTED_PRODUCTS; payload: ProductModel }
-): ProductModel  => {
+): ProductModel => {
   switch (action.type) {
     case ActionTypes.SELECTED_PRODUCTS:
       return action.payload;
