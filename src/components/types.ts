@@ -54,3 +54,4 @@ export const initialCartState: CartState = {
   cartTotalQuantity: 0,
   cartTotalAmount: 0,
 };
+

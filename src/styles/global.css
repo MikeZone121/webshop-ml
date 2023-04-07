@@ -15,6 +15,9 @@
   .footer-items {
     @apply text-base leading-4 mt-6 text-graylight cursor-pointer hover:text-white;
   }
+  .svg {
+    @apply w-[1em] h-[1em];
+  }
 }
 
 html, body, #root {
