@@ -1,4 +1,5 @@
 <a name="readme-top"></a>
+
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -8,8 +9,6 @@
 -->
 
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -27,8 +26,6 @@
     <a href="https://github.com/MikeZone121/webshop-ml">View Demo</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <!-- <details>
@@ -56,9 +53,8 @@
   </ol>
 </details> -->
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
@@ -67,23 +63,22 @@ This is a project to improve my react skills and prepare me for a frontend job. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 ### Built With
 
-* Vite
-* React
-* Redux/toolkit
-* TailwindCSS
-* Typescript
+- Vite
+- React
+- Redux/toolkit
+- TailwindCSS
+- Typescript
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
+
 ## Getting Started
+
 ### Installation
+
 1. Clone the repo
    ```sh
    git clone https://github.com/MikeZone121/webshop-ml
@@ -103,8 +98,6 @@ This is a project to improve my react skills and prepare me for a frontend job. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- USAGE EXAMPLES -->
 <!-- ## Usage
 
@@ -114,7 +107,6 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
  -->
-
 
 <!-- ROADMAP -->
 <!-- ## Roadmap
@@ -170,7 +162,6 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
  -->
 
-
 <!-- ACKNOWLEDGMENTS -->
 <!-- ## Acknowledgments
 
@@ -188,8 +179,8 @@ Use this space to list resources you find helpful and would like to give credit 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
  -->
 
-
 <!-- MARKDOWN LINKS & IMAGES -->
+
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/mike-livis-954771137/
 [product-screenshot]: images/screenshot.png

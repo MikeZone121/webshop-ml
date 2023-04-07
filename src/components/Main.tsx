@@ -23,7 +23,6 @@ function Main() {
 
       const handleAddToWishlist = (product: ProductModel) => {
         dispatch(addToWishlist(product));
-        navigateTo("/wishlist");
       };
 
       return (

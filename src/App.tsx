@@ -6,8 +6,6 @@ import "react-toastify/dist/ReactToastify.min.css";
 import { ToastContainer } from "react-toastify";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { ApiProvider } from "@reduxjs/toolkit/query/react";
-import { productsApi } from "./services/products";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
