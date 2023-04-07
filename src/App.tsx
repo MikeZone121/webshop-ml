@@ -4,8 +4,8 @@ import { RouterProvider } from "react-router-dom";
 import router from "./routes";
 import "react-toastify/dist/ReactToastify.min.css";
 import { ToastContainer } from "react-toastify";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 
