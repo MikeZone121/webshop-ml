@@ -8,7 +8,9 @@ import {
   clearWishlist,
   RemoveFromWishlist,
   getTotals,
+  RemoveFromWishlistAfterAddToCart,
 } from "../redux/WishlistSlice";
+import { addToCart } from "../redux/CartSlice";
 
 function Wishlist() {
   const wishlist = useSelector((state: RootState) => state.wishlist);
@@ -17,6 +19,11 @@ function Wishlist() {
   useEffect(() => {
     dispatch(getTotals());
   }, [wishlist]);
+
+  const handleAddToCarFromWishlist = (wishlistItem: ProductModel) => {
+    dispatch(addToCart(wishlistItem));
+    dispatch(RemoveFromWishlistAfterAddToCart(wishlistItem));
+  };
 
   const handleRemoveFromWishlist = (wishlistItem: ProductModel) => {
     dispatch(RemoveFromWishlist(wishlistItem));
@@ -27,17 +34,19 @@ function Wishlist() {
   };
 
   return (
-    <div className="cart-container">
+    <div className="wishlist-container">
       <h2>Wishlist</h2>
       {wishlist.wishlistTotalQuantity === 0 ? (
-        <div className="cart-empty text-center">
+        <div className="wishlist-empty text-center">
           <p>
             Your wishlist is empty. <br />
             <span>Go to the store and add some lovely products!</span>
           </p>
           <div className="start-shopping text-center">
             <Link to="/">
-              <span>Start wishlisting</span>
+              <button className="rounded-md border-2 border-blue text-blue hover:text-white hover:bg-blue transition ease-in-out px-6 py-2 my-6">
+                Start wishlisting
+              </button>
             </Link>
           </div>
         </div>
@@ -45,13 +54,12 @@ function Wishlist() {
         <div>
           <div className="titles">
             <h3 className="product-title">Product</h3>
-            <h3 className="price">Price</h3>
-            <h3 className="total">Total</h3>
+            <h3 className="price text-right">Price</h3>
           </div>
-          <div className="cart-items">
+          <div className="wishlist-items">
             {wishlist.wishlistItems?.map((wishlistItem: wishlistItem) => (
-              <div className="cart-item" key={wishlistItem.id}>
-                <div className="cart-product">
+              <div className="wishlist-item" key={wishlistItem.id}>
+                <div className="wishlist-product">
                   <img src={wishlistItem.thumbnail} alt={wishlistItem.title} />
                   <div>
                     <h3>{wishlistItem.title}</h3>
@@ -63,11 +71,16 @@ function Wishlist() {
                     </button>
                   </div>
                 </div>
-                <div className="cart-product-price">
+                <div className="wishlist-product-price text-right">
                   <h3>{wishlistItem.price}</h3>
                 </div>
-                <div className="cart-product-total-price">
-                  <h3>{wishlistItem.price * wishlistItem.wishlistQuantity}</h3>
+                <div className="wishlist-product-price text-right">
+                  <button
+                    onClick={() => handleAddToCarFromWishlist(wishlistItem)}
+                    className="rounded-md border-2 border-blue text-blue hover:text-white hover:bg-blue transition ease-in-out px-6 py-2 my-6"
+                  >
+                    Add to cart
+                  </button>
                 </div>
               </div>
             ))}
@@ -77,10 +90,11 @@ function Wishlist() {
               className="clear-cart"
               onClick={() => handleClearWishlist()}
             >
-              Clear Cart
+              Clear Wishlist
             </button>
           </div>
           {/* TODO --> ADD TO CART BUTTON AND THEN DELETE ITEM IN WISHLIST */}
+          {/* TO DO --> IF ITEM IS ADDED TO WISHLIST SVG NEEDS TO BE RED */}
         </div>
       )}
     </div>
