@@ -4,7 +4,7 @@ import { ProductModel } from "./types";
 import { addToCart } from "../redux/CartSlice";
 import { addToWishlist } from "../redux/WishlistSlice";
 import { useNavigate } from "react-router-dom";
-import { WishListIcon } from "../assets/img/icons";
+import { WishList } from "../icons";
 import { useGetAllProductsQuery } from "../services/products";
 
 function Main() {
@@ -54,7 +54,11 @@ function Main() {
               aria-label="view favourites"
               className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
             >
-              <WishListIcon width={24} height={24} />
+              <WishList
+                width="1em"
+                height="1em"
+                className="svg text-2xl fill-stroke hover:text-red-500 hover:fill-current transition ease-in-out"
+              />
             </button>
           </div>
         </div>

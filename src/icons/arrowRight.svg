@@ -1,11 +1,3 @@
-const ArrowRight = ({
-  width = 24,
-  height = 24,
-}: {
-  width: number;
-  height: number;
-}) => {
-  return (
     <svg
       className="fill-stroke text-black dark:text-white"
       width={width}
@@ -22,7 +14,4 @@ const ArrowRight = ({
         strokeLinejoin="round"
       />
     </svg>
-  );
-};
 
-export default ArrowRight;

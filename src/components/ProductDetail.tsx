@@ -32,7 +32,7 @@ function ProductDetail() {
               <p className="mb-6">{data.description}</p>
               <button
                 onClick={() => handleAddToCart(data)}
-                className="border-2 border-blue text-blue hover:text-lightblue hover:border-lightblue transition ease-in-out px-6 py-2"
+                className="rounded-md border-2 border-blue text-blue hover:text-white hover:bg-blue transition ease-in-out px-6 py-2"
               >
                 Add to cart
               </button>
