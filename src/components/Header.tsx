@@ -1,12 +1,12 @@
 import { useState } from "react";
 import {
-  SearchIcon,
-  WishListIcon,
-  CartIcon,
-  HamburgerIcon,
-  CloseIcon,
+  Search,
+  WishList,
+  Cart,
+  Hamburger,
+  Close,
   ArrowRight,
-} from "../assets/img/icons";
+} from ".././icons";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
 
@@ -29,7 +29,7 @@ function Header() {
           >
             <div className="flex items-center space-x-3 text-gray-800 dark:text-white">
               <div>
-                <SearchIcon width={16} height={16} />
+                <Search width="1em" height="1em" className="svg text-2xl" />
               </div>
               <input
                 type="text"
@@ -37,22 +37,20 @@ function Header() {
                 className="text-sm leading-none dark:text-gray-300 dark:bg-gray-900 text-gray-600 focus:outline-none"
               />
             </div>
-            <div className="space-x-6">
+            <div className="space-x-6 flex flex-row items-center">
               <a href="/wishlist">
-                <button
-                  aria-label="view favourites"
-                  className="text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
-                >
-                  <WishListIcon width={16} height={16} />
+                <button aria-label="view favourites">
+                  <WishList
+                    width="1em"
+                    height="1em"
+                    className="svg text-2xl fill-stroke hover:text-red-500 hover:fill-current transition ease-in-out"
+                  />
                 </button>
               </a>
               <a href="/cart">
-                <button
-                  aria-label="go to cart"
-                  className="text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
-                >
+                <button aria-label="go to cart">
                   {cart.cartTotalQuantity ?? 0}
-                  <CartIcon width={18} height={18} />
+                  <Cart width="1em" height="1em" className="svg text-2xl" />
                 </button>
               </a>
             </div>
@@ -61,12 +59,14 @@ function Header() {
           {/* For large screens */}
           <div className="dark:bg-gray-900 bg-gray-50 mb-12 shadow-sm">
             <div className="container mx-auto flex items-center justify-between p-6">
-              <h1
-                className="md:w-2/12 cursor-pointer text-gray-800 text-3xl dark:text-white"
-                aria-label="GlamGarb"
-              >
-                GlamGarb
-              </h1>
+              <a href="/">
+                <h1
+                  className="md:w-2/12 cursor-pointer text-gray-800 text-3xl dark:text-white"
+                  aria-label="GlamGarb"
+                >
+                  GlamGarb
+                </h1>
+              </a>
               <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                 <li>
                   <a
@@ -98,9 +98,8 @@ function Header() {
                   <button
                     onClick={() => setSearchInput(!searchInput)}
                     aria-label="search items"
-                    className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
                   >
-                    <SearchIcon width={24} height={24} />
+                    <Search className="svg text-2xl" />
                   </button>
                   <input
                     id="searchInput"
@@ -113,20 +112,18 @@ function Header() {
                 </div>
                 <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
                   <a href="/wishlist">
-                    <button
-                      aria-label="view favourites"
-                      className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
-                    >
-                      <WishListIcon width={24} height={24} />
+                    <button aria-label="view favourites">
+                      <WishList
+                        width="1em"
+                        height="1em"
+                        className="svg text-2xl fill-stroke hover:text-red-500 hover:fill-current transition ease-in-out"
+                      />
                     </button>
                   </a>
                   <a href="/cart">
-                    <button
-                      aria-label="go to cart"
-                      className="text-gray-800 dark:hover:text-gray-300 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-800"
-                    >
+                    <button aria-label="go to cart">
                       {cart.cartTotalQuantity ?? 0}
-                      <CartIcon width={24} height={24} />
+                      <Cart width="1em" height="1em" className="svg text-2xl" />
                     </button>
                   </a>
                 </div>
@@ -136,14 +133,22 @@ function Header() {
                     onClick={() => setMdOptionsToggle(!mdOptionsToggle)}
                     className="text-black dark:text-white dark:hover:text-gray-300 hidden md:flex focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
                   >
-                    <HamburgerIcon width={24} height={24} />
+                    <Hamburger
+                      width="1em"
+                      height="1em"
+                      className="svg text-2xl"
+                    />
                   </button>
                   <button
                     aria-label="open menu"
                     onClick={() => setShowMenu(true)}
                     className="text-black dark:text-white dark:hover:text-gray-300 md:hidden focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
                   >
-                    <HamburgerIcon width={24} height={24} />
+                    <Hamburger
+                      width="1em"
+                      height="1em"
+                      className="svg text-2xl"
+                    />
                   </button>
                 </div>
               </div>
@@ -159,7 +164,7 @@ function Header() {
             <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4 p-4">
               <div className="flex items-center space-x-3">
                 <div>
-                  <SearchIcon width={20} height={20} />
+                  <Search width="1em" height="1em" className="svg text-2xl" />
                 </div>
                 <input
                   type="text"
@@ -172,7 +177,7 @@ function Header() {
                 aria-label="close menu"
                 className="focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
               >
-                <CloseIcon width={16} height={16} />
+                <Close width="1em" height="1em" className="svg text-2xl" />
               </button>
             </div>
             <div className="mt-6 p-4">
@@ -184,7 +189,11 @@ function Header() {
                   >
                     Home
                     <div>
-                      <ArrowRight width={12} height={12} />
+                      <ArrowRight
+                        width="1em"
+                        height="1em"
+                        className="svg text-2xl"
+                      />
                     </div>
                   </a>
                 </li>
@@ -195,7 +204,11 @@ function Header() {
                   >
                     Furniture
                     <div>
-                      <ArrowRight width={12} height={12} />
+                      <ArrowRight
+                        width="1em"
+                        height="1em"
+                        className="svg text-2xl"
+                      />
                     </div>
                   </a>
                 </li>
@@ -206,7 +219,11 @@ function Header() {
                   >
                     Lookbook
                     <div>
-                      <ArrowRight width={12} height={12} />
+                      <ArrowRight
+                        width="1em"
+                        height="1em"
+                        className="svg text-2xl"
+                      />
                     </div>
                   </a>
                 </li>
@@ -217,7 +234,11 @@ function Header() {
                   >
                     Support
                     <div>
-                      <ArrowRight width={12} height={12} />
+                      <ArrowRight
+                        width="1em"
+                        height="1em"
+                        className="svg text-2xl"
+                      />
                     </div>
                   </a>
                 </li>
@@ -231,7 +252,7 @@ function Header() {
                     className="dark:text-white text-gray-800 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
                     <div>
-                      <CartIcon width={22} height={22} />
+                      <Cart width="1em" height="1em" className="svg text-2xl" />
                     </div>
                     <p className="text-base">Cart</p>
                     <p className="text-base">{cart.cartTotalQuantity ?? 0}</p>
@@ -243,7 +264,11 @@ function Header() {
                     className="dark:text-white text-gray-800 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
                   >
                     <div>
-                      <WishListIcon width={22} height={22} />
+                      <WishList
+                        width="1em"
+                        height="1em"
+                        className="svg text-2xl fill-stroke hover:text-red-500 hover:fill-current transition ease-in-out"
+                      />
                     </div>
                     <p className="text-base">Wishlist</p>
                   </a>
