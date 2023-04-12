@@ -12,8 +12,16 @@ const WishlistSlice = createSlice({
         (item) => item.id === action.payload.id
       );
       if (itemIndex >= 0) {
+        const nextwishlistItems = state.wishlistItems.filter(
+          (wishlistItem) => wishlistItem.id !== action.payload.id
+        );
+        state.wishlistItems = nextwishlistItems;
+        localStorage.setItem(
+          "wishlistItems",
+          JSON.stringify(state.wishlistItems)
+        );
         toast.error(
-          `Increased ${state.wishlistItems[itemIndex].title} already in wishlist`,
+          `${action.payload.title} removed from wishlist`,
           toastConfig
         );
       } else {
