@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ProductModel } from "./types";
 import { addToCart } from "../redux/CartSlice";
@@ -6,11 +6,13 @@ import { addToWishlist } from "../redux/WishlistSlice";
 import { useNavigate } from "react-router-dom";
 import { WishList } from "../icons";
 import { useGetAllProductsQuery } from "../services/products";
+import { RootState } from "../redux/store";
 
 function Main() {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
   const { data } = useGetAllProductsQuery();
+  const state = useSelector((state: RootState) => state.wishlist);
 
   const renderList =
     data &&
@@ -24,6 +26,9 @@ function Main() {
       const handleAddToWishlist = (product: ProductModel) => {
         dispatch(addToWishlist(product));
       };
+
+      const isInWishlist = state.wishlistItems.some((item) => item.id === id);
+      console.log(isInWishlist);
 
       return (
         <div
@@ -57,7 +62,9 @@ function Main() {
               <WishList
                 width="1em"
                 height="1em"
-                className="svg text-2xl fill-stroke hover:text-red-500 hover:fill-current transition ease-in-out"
+                className={`svg text-2xl fill-stroke transition ease-in-out hover:text-red-500 hover:fill-current ${
+                  isInWishlist && "text-red-500 fill-current"
+                }`}
               />
             </button>
           </div>
