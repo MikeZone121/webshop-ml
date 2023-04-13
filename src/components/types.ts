@@ -34,7 +34,7 @@ export const initialWishlistState: WishlistState = {
   wishlistItems: localStorage.getItem("wishlistItems")
     ? JSON.parse(localStorage.getItem("wishlistItems")!)
     : [],
-    cartItems: localStorage.getItem("cartItems")
+  cartItems: localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems")!)
     : [],
   wishlistTotalQuantity: 0,
@@ -56,25 +56,25 @@ export const initialCartState: CartState = {
 };
 
 export interface User {
-  "iss": string,
-  "nbf": number,
-  "aud": string,
-  "sub": number,
-  "email": string,
-  "email_verified": boolean,
-  "azp": string,
-  "name": string,
-  "picture": string,
-  "given_name": string,
-  "family_name": string,
-  "iat": number,
-  "exp": number,
-  "jti": string
+  iss: string;
+  nbf: number;
+  aud: string;
+  sub: number;
+  email: string;
+  email_verified: boolean;
+  azp: string;
+  name: string;
+  picture: string;
+  given_name: string;
+  family_name: string;
+  iat: number;
+  exp: number;
+  jti: string;
 }
 
-export interface GoogleCallbackResponse{
-  "clientId":string,
-  "client_id": string,
-  "credential": string,
-  "select_by": string
+export interface GoogleCallbackResponse {
+  clientId: string;
+  client_id: string;
+  credential: string;
+  select_by: string;
 }

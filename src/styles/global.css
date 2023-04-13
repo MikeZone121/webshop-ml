@@ -20,10 +20,11 @@
   }
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
-
 
 /* Cart */
 .cart-container {
@@ -206,9 +207,6 @@ html, body, #root {
     margin-bottom: 2rem;
   }
 }
-
-
-
 
 /* wishlist */
 .wishlist-container {
@@ -413,9 +411,12 @@ hr.divider::after {
   background: white;
 }
 
-.dropdown-account{
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-transition-duration: 150ms;
-transition-duration: 100ms; 	transition-delay: 1000ms;
+.dropdown-account {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 100ms;
+  transition-delay: 1000ms;
 }

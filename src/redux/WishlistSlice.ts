@@ -20,7 +20,7 @@ const WishlistSlice = createSlice({
           "wishlistItems",
           JSON.stringify(state.wishlistItems)
         );
-        toast.error(
+        toast.success(
           `${action.payload.title} removed from wishlist`,
           toastConfig
         );
@@ -44,7 +44,10 @@ const WishlistSlice = createSlice({
         "wishlistItems",
         JSON.stringify(state.wishlistItems)
       );
-      toast.success(`${action.payload.title} removed from wishlist`, toastConfig);
+      toast.success(
+        `${action.payload.title} removed from wishlist`,
+        toastConfig
+      );
     },
 
     RemoveFromWishlistAfterAddToCart(state, action) {
@@ -83,7 +86,12 @@ const WishlistSlice = createSlice({
   },
 });
 
-export const { addToWishlist, RemoveFromWishlist, clearWishlist, getTotals, RemoveFromWishlistAfterAddToCart } =
-  WishlistSlice.actions;
+export const {
+  addToWishlist,
+  RemoveFromWishlist,
+  clearWishlist,
+  getTotals,
+  RemoveFromWishlistAfterAddToCart,
+} = WishlistSlice.actions;
 
 export default WishlistSlice.reducer;
