@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import { ProductModel, initialWishlistState } from "../components/types";
 import { toastConfig } from "../config/toast";
 
+// TODO: camelcase
 const WishlistSlice = createSlice({
   name: "wishlist",
   initialState: initialWishlistState,
@@ -44,7 +45,10 @@ const WishlistSlice = createSlice({
         "wishlistItems",
         JSON.stringify(state.wishlistItems)
       );
-      toast.success(`${action.payload.title} removed from wishlist`, toastConfig);
+      toast.success(
+        `${action.payload.title} removed from wishlist`,
+        toastConfig
+      );
     },
 
     RemoveFromWishlistAfterAddToCart(state, action) {
@@ -83,7 +87,13 @@ const WishlistSlice = createSlice({
   },
 });
 
-export const { addToWishlist, RemoveFromWishlist, clearWishlist, getTotals, RemoveFromWishlistAfterAddToCart } =
-  WishlistSlice.actions;
+// TODO: camelcase
+export const {
+  addToWishlist,
+  RemoveFromWishlist,
+  clearWishlist,
+  getTotals,
+  RemoveFromWishlistAfterAddToCart,
+} = WishlistSlice.actions;
 
 export default WishlistSlice.reducer;
