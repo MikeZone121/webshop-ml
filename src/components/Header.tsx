@@ -44,7 +44,8 @@ function Header() {
       document.getElementById("signInDiv")!,
       {
         theme: "outline",
-        size: "medium",
+        size: "large",
+        type: "standard",
       }
     );
 
@@ -55,12 +56,21 @@ function Header() {
     <div className="dark:bg-gray-900 m-auto">
       <div className="bg-graydark">
         <div className="container text-white py-1 px-6 flex justify-between items-center">
-          <p>Trust</p>
-          <div id="signInDiv"></div>
+          <p>Trustpilot: ★★★★★</p>
+          {!user && (
+            <div className="flex flex-row">
+              <a href="/login" className="hover:underline">
+                <p>Login </p>
+              </a>
+              /
+              <a className="hover:underline" href="/sign-in">
+                <p> Sign-in</p>
+              </a>
+            </div>
+          )}
           {user && (
             <>
-              <button onClick={() => handleSignOut()}> Sign Out</button>
-              <div className="flex flex-row items-center">
+              <div className="flex flex-row items-center relative group">
                 <img
                   width="20px"
                   height="20px"
@@ -69,6 +79,9 @@ function Header() {
                   alt={user.name}
                 />
                 <p>{user.name}</p>
+                <div className="hidden group-hover:block group-hover:absolute group-hover:left-0 group-hover:bottom-[-2.75em] group-hover:bg-graydark group-hover:p-2 group-hover:w-full group-hover:z-10 dropdown-account">
+                  <button onClick={() => handleSignOut()}>Sign Out</button>
+                </div>
               </div>
             </>
           )}
