@@ -23,7 +23,7 @@
     This is a React webshop to improve my React skills
     <br />
     <br />
-    <a href="https://github.com/MikeZone121/webshop-ml">View Demo</a>
+    <a href="https://webshop-phi-azure.vercel.app/">View Demo</a>
   </p>
 </div>
 

@@ -28,7 +28,6 @@ function Main() {
       };
 
       const isInWishlist = state.wishlistItems.some((item) => item.id === id);
-      console.log(isInWishlist);
 
       return (
         <div

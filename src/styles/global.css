@@ -391,3 +391,31 @@ html, body, #root {
     margin-bottom: 2rem;
   }
 }
+
+hr.divider {
+  overflow: visible;
+  padding: 0;
+  margin: 1em 0;
+  width: 100%;
+  border-color: #e7e7ed;
+  text-align: center;
+  opacity: 1;
+}
+
+hr.divider::after {
+  content: "Or";
+  display: inline-block;
+  position: relative;
+  top: -10px;
+  padding: 0 16px;
+  font-size: 14px;
+  color: black;
+  background: white;
+}
+
+.dropdown-account{
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+transition-duration: 150ms;
+transition-duration: 100ms; 	transition-delay: 1000ms;
+}
