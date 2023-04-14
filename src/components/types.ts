@@ -84,4 +84,5 @@ export interface AllProducts {
   total: number;
   skip: number;
   limit: number;
+  type: string;
 }

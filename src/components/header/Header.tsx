@@ -11,6 +11,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import jwt_decode from "jwt-decode";
 import { GoogleCallbackResponse, User } from "../types";
+import classNames from "classnames";
 
 function Header() {
   const [toggleSearch, setToggleSearch] = useState(true);
@@ -92,9 +93,12 @@ function Header() {
           {/* For md screen size */}
           <div
             id="md-searchbar"
-            className={`${
-              mdHamburgerToggle ? "hidden" : "flex"
-            } bg-white dark:bg-gray-900 lg:hidden py-5 px-6 items-center justify-between`}
+            className={classNames({
+              hidden: mdHamburgerToggle,
+              flex: !mdHamburgerToggle,
+              "bg-white dark:bg-gray-900 lg:hidden py-5 px-6 items-center justify-between":
+                true,
+            })}
           >
             <div className="flex items-center space-x-3 text-gray-800 dark:text-white">
               <div>
@@ -217,9 +221,12 @@ function Header() {
           {/* For small screen */}
           <div
             id="mobile-menu"
-            className={`${
-              toggleHamburger ? "flex" : "hidden"
-            } absolute dark:bg-gray-900 z-10 inset-0 md:hidden bg-white flex-col h-screen w-full`}
+            className={classNames({
+              flex: toggleHamburger,
+              hidden: !toggleHamburger,
+              "absolute dark:bg-gray-900 z-10 inset-0 md:hidden bg-white flex-col h-screen w-full":
+                true,
+            })}
           >
             <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4 p-4">
               <div className="flex items-center space-x-3">
