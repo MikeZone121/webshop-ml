@@ -78,3 +78,10 @@ export interface GoogleCallbackResponse {
   credential: string;
   select_by: string;
 }
+
+export interface AllProducts {
+  products: [];
+  total: number;
+  skip: number;
+  limit: number;
+}

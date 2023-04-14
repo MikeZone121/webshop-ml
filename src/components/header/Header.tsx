@@ -6,11 +6,11 @@ import {
   Hamburger,
   Close,
   ArrowRight,
-} from ".././icons";
+} from "../../icons";
 import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+import { RootState } from "../../redux/store";
 import jwt_decode from "jwt-decode";
-import { GoogleCallbackResponse, User } from "./types";
+import { GoogleCallbackResponse, User } from "../types";
 
 function Header() {
   const [toggleSearch, setToggleSearch] = useState(true);
@@ -138,26 +138,17 @@ function Header() {
               </a>
               <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
                 <li>
-                  <a
-                    href="/"
-                    className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
-                  >
+                  <a href="/" className="header-items-large">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/shop"
-                    className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
-                  >
+                  <a href="/shop" className="header-items-large">
                     Shop
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="/contact"
-                    className="dark:text-white text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
-                  >
+                  <a href="/contact" className="header-items-large">
                     Contact
                   </a>
                 </li>
@@ -252,10 +243,7 @@ function Header() {
             <div className="mt-6 p-4">
               <ul className="flex flex-col space-y-6">
                 <li>
-                  <a
-                    href="#"
-                    className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
+                  <a href="#" className="header-items-mobile">
                     Home
                     <div>
                       <ArrowRight
@@ -267,10 +255,7 @@ function Header() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
+                  <a href="#" className="header-items-mobile">
                     Furniture
                     <div>
                       <ArrowRight
@@ -282,10 +267,7 @@ function Header() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
+                  <a href="#" className="header-items-mobile">
                     Lookbook
                     <div>
                       <ArrowRight
@@ -297,10 +279,7 @@ function Header() {
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="dark:text-white flex items-center justify-between hover:underline text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800"
-                  >
+                  <a href="#" className="header-items-mobile">
                     Support
                     <div>
                       <ArrowRight

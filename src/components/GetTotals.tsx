@@ -1,8 +1,15 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { getTotals } from "../redux/CartSlice";
-import store from "../redux/store";
 
 function GetTotals() {
-  store.dispatch(getTotals());
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTotals());
+  }, [dispatch]);
+
+  return null;
 }
 
 export default GetTotals;

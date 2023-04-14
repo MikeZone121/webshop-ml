@@ -9,7 +9,6 @@ const store = configureStore({
     getDefaultMiddleware().concat(productsApi.middleware),
 });
 
-store.dispatch(getTotals());
 export default store;
 
 export type RootState = ReturnType<typeof store.getState>;

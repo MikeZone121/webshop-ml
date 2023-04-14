@@ -15,6 +15,17 @@
   .footer-items {
     @apply text-base leading-4 mt-6 text-graylight cursor-pointer hover:text-white;
   }
+  .header-items-large {
+    @apply dark:text-white flex items-center justify-between hover:underline text-base text-black focus:outline-none;
+  }
+
+  .header-items-md {
+    @apply dark:text-white flex items-center justify-between hover:underline text-base text-black focus:outline-none;
+  }
+
+  .header-items-mobile {
+    @apply dark:text-white flex items-center justify-between hover:underline text-base text-black focus:outline-none;
+  }
   .svg {
     @apply w-[1em] h-[1em];
   }
