@@ -9,7 +9,7 @@ function ProductDetail() {
   const navigateTo = useNavigate();
   const { productId } = useParams();
 
-  const { data, isFetching } = useGetProductQuery(productId);
+  const { data, isFetching } = useGetProductQuery(productId ?? "");
 
   const handleAddToCart = (product: ProductModel) => {
     dispatch(addToCart(product));
