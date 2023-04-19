@@ -1,116 +1,66 @@
-import { useEffect, useState } from "react";
-import {
-  Search,
-  WishList,
-  Cart,
-  Hamburger,
-  Close,
-  ArrowRight,
-} from "../../icons";
+import TopHeader from "./TopHeader";
+import { useState } from "react";
+import classNames from "classnames";
+import { Cart, WishList } from "../../icons";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-import jwt_decode from "jwt-decode";
-import { GoogleCallbackResponse, User } from "../types";
-import classNames from "classnames";
 
 function Header() {
-  const [toggleSearch, setToggleSearch] = useState(true);
-  const [mdHamburgerToggle, setMdHamburgerToggle] = useState(true);
-  const [toggleHamburger, setToggleHamburger] = useState(false);
-  const cart = useSelector((state: RootState) => state.cart);
-
-  const [user, setUser] = useState<User | undefined>();
-
-  function handleCallbackResponse(response: GoogleCallbackResponse) {
-    let userObject = jwt_decode<User>(response.credential);
-    setUser(userObject);
-
-    document.getElementById("signInDiv")!.hidden = true;
-  }
-
-  function handleSignOut() {
-    setUser(undefined);
-    document.getElementById("signInDiv")!.hidden = false;
-  }
-
-  useEffect(() => {
-    /* Global Google */
-    window.google?.accounts.id.initialize({
-      client_id:
-        "723430193377-e4gt7h1qi35qvnk7936dmi6mhnvvjqmm.apps.googleusercontent.com",
-      callback: handleCallbackResponse,
-    });
-
-    window.google?.accounts.id.renderButton(
-      document.getElementById("signInDiv")!,
-      {
-        theme: "outline",
-        size: "large",
-        type: "standard",
-      }
-    );
-
-    window.google?.accounts.id.prompt();
-  }, []);
-
+  const [hamburgerToggle, setHamburgerToggle] = useState(false);
+  const cart = useSelector((state: RootState) => state.cartReducer);
   return (
-    <div className="dark:bg-gray-900 m-auto">
-      <div className="bg-graydark">
-        <div className="container text-white py-1 px-6 flex justify-between items-center">
-          <p>Trustpilot: ★★★★★</p>
-          {!user && (
-            <div className="flex flex-row">
-              <a href="/login" className="hover:underline">
-                <p>Login </p>
-              </a>
-              /
-              <a className="hover:underline" href="/sign-in">
-                <p> Sign-in</p>
-              </a>
-            </div>
-          )}
-          {user && (
-            <>
-              <div className="flex flex-row items-center relative group">
-                <img
-                  width="20px"
-                  height="20px"
-                  className="rounded-sm mr-2"
-                  src={user.picture}
-                  alt={user.name}
-                />
-                <p>{user.name}</p>
-                <div className="hidden group-hover:block group-hover:absolute group-hover:left-0 group-hover:bottom-[-2.75em] group-hover:bg-graydark group-hover:p-2 group-hover:w-full group-hover:z-10 dropdown-account">
-                  <button onClick={() => handleSignOut()}>Sign Out</button>
-                </div>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
-      <div>
-        <div className="relative">
-          {/* For md screen size */}
+    <>
+      <TopHeader />
+      <div className="shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white mb-4 md:mb-20">
+        <nav className="flex items-center justify-between flex-wrap container mx-auto p-6">
+          <div className="flex items-center flex-shrink-0 text-white mr-6">
+            <h2 className="font-semibold text-2xl tracking-tight text-black">
+              <a href="/">GlamGarb</a>
+            </h2>
+          </div>
+          <div className="block lg:hidden">
+            <button
+              onClick={() => setHamburgerToggle(!hamburgerToggle)}
+              className="flex items-center px-3 py-2 border rounded text-black border-black"
+            >
+              <svg
+                className="fill-current h-3 w-3"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            </button>
+          </div>
           <div
-            id="md-searchbar"
             className={classNames({
-              hidden: mdHamburgerToggle,
-              flex: !mdHamburgerToggle,
-              "bg-white dark:bg-gray-900 lg:hidden py-5 px-6 items-center justify-between":
+              flex: hamburgerToggle,
+              hidden: !hamburgerToggle,
+              "flex flex-col w-full flex-grow md:flex-row lg:flex lg:items-center lg:w-auto":
                 true,
             })}
           >
-            <div className="flex items-center space-x-3 text-gray-800 dark:text-white">
-              <div>
-                <Search width="1em" height="1em" className="svg text-2xl" />
-              </div>
-              <input
-                type="text"
-                placeholder="Search for products"
-                className="text-sm leading-none dark:text-gray-300 dark:bg-gray-900 text-gray-600 focus:outline-none"
-              />
+            <div className="text-sm lg:flex-grow text-left md:text-right">
+              <ul className="flex md:items-center flex-col justify-start md:flex-row md:justify-center md:space-x-8">
+                <li className="mt-4 md:mt-0">
+                  <a href="/" className="header-items-large">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="/shop" className="header-items-large">
+                    Shop
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" className="header-items-large">
+                    Contact
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div className="space-x-6 flex flex-row items-center">
+            <div className="flex items-center justify-end mt-5 space-x-4 xl:space-x-8">
               <a href="/wishlist">
                 <button aria-label="view favourites">
                   <WishList
@@ -128,212 +78,9 @@ function Header() {
               </a>
             </div>
           </div>
-          {/* For md screen size */}
-          {/* For large screens */}
-          <div className="dark:bg-gray-900 bg-gray-50 mb-12 shadow-sm">
-            <div className="container mx-auto flex items-center justify-between p-6">
-              <a href="/">
-                <h1
-                  className="md:w-2/12 cursor-pointer text-gray-800 text-3xl dark:text-white"
-                  aria-label="GlamGarb"
-                >
-                  GlamGarb
-                </h1>
-              </a>
-              <ul className="hidden w-8/12 md:flex items-center justify-center space-x-8">
-                <li>
-                  <a href="/" className="header-items-large">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="/shop" className="header-items-large">
-                    Shop
-                  </a>
-                </li>
-                <li>
-                  <a href="/contact" className="header-items-large">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-              <div className="md:w-2/12 justify-end flex items-center space-x-4 xl:space-x-8">
-                <div className="hidden lg:flex items-center">
-                  <button
-                    onClick={() => setToggleSearch(!toggleSearch)}
-                    aria-label="search items"
-                  >
-                    <Search className="svg text-2xl" />
-                  </button>
-                  <input
-                    id="searchInput"
-                    type="text"
-                    placeholder="search"
-                    className={` ${
-                      toggleSearch ? "hidden" : ""
-                    } text-sm dark:bg-gray-900 dark:placeholder-gray-300 text-gray-600 rounded ml-1 border border-transparent focus:outline-none focus:border-gray-400 px-1`}
-                  />
-                </div>
-                <div className="hidden lg:flex items-center space-x-4 xl:space-x-8">
-                  <a href="/wishlist">
-                    <button aria-label="view favourites">
-                      <WishList
-                        width="1em"
-                        height="1em"
-                        className="svg text-2xl fill-stroke hover:text-red-500 hover:fill-current transition ease-in-out"
-                      />
-                    </button>
-                  </a>
-                  <a href="/cart">
-                    <button aria-label="go to cart">
-                      {cart.cartTotalQuantity ?? 0}
-                      <Cart width="1em" height="1em" className="svg text-2xl" />
-                    </button>
-                  </a>
-                </div>
-                <div className="flex lg:hidden">
-                  <button
-                    aria-label="show options"
-                    onClick={() => setMdHamburgerToggle(!mdHamburgerToggle)}
-                    className="text-black dark:text-white dark:hover:text-gray-300 hidden md:flex focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
-                  >
-                    <Hamburger
-                      width="1em"
-                      height="1em"
-                      className="svg text-2xl"
-                    />
-                  </button>
-                  <button
-                    aria-label="open menu"
-                    onClick={() => setToggleHamburger(true)}
-                    className="text-black dark:text-white dark:hover:text-gray-300 md:hidden focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
-                  >
-                    <Hamburger
-                      width="1em"
-                      height="1em"
-                      className="svg text-2xl"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* For small screen */}
-          <div
-            id="mobile-menu"
-            className={classNames({
-              flex: toggleHamburger,
-              hidden: !toggleHamburger,
-              "absolute dark:bg-gray-900 z-10 inset-0 md:hidden bg-white flex-col h-screen w-full":
-                true,
-            })}
-          >
-            <div className="flex items-center justify-between border-b border-gray-200 dark:border-gray-700 pb-4 p-4">
-              <div className="flex items-center space-x-3">
-                <div>
-                  <Search width="1em" height="1em" className="svg text-2xl" />
-                </div>
-                <input
-                  type="text"
-                  placeholder="Search for products"
-                  className="text-sm dark:bg-gray-900 text-gray-600 placeholder-gray-600 dark:placeholder-gray-300 focus:outline-none"
-                />
-              </div>
-              <button
-                onClick={() => setToggleHamburger(false)}
-                aria-label="close menu"
-                className="focus:outline-none focus:ring-2 rounded focus:ring-gray-600"
-              >
-                <Close width="1em" height="1em" className="svg text-2xl" />
-              </button>
-            </div>
-            <div className="mt-6 p-4">
-              <ul className="flex flex-col space-y-6">
-                <li>
-                  <a href="#" className="header-items-mobile">
-                    Home
-                    <div>
-                      <ArrowRight
-                        width="1em"
-                        height="1em"
-                        className="svg text-2xl"
-                      />
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="header-items-mobile">
-                    Furniture
-                    <div>
-                      <ArrowRight
-                        width="1em"
-                        height="1em"
-                        className="svg text-2xl"
-                      />
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="header-items-mobile">
-                    Lookbook
-                    <div>
-                      <ArrowRight
-                        width="1em"
-                        height="1em"
-                        className="svg text-2xl"
-                      />
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="header-items-mobile">
-                    Support
-                    <div>
-                      <ArrowRight
-                        width="1em"
-                        height="1em"
-                        className="svg text-2xl"
-                      />
-                    </div>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div className="h-full flex items-end">
-              <ul className="flex flex-col space-y-8 bg-gray-50 w-full py-10 p-4 dark:bg-gray-800">
-                <li>
-                  <a
-                    href="#"
-                    className="dark:text-white text-gray-800 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
-                  >
-                    <div>
-                      <Cart width="1em" height="1em" className="svg text-2xl" />
-                    </div>
-                    <p className="text-base">Cart</p>
-                    <p className="text-base">{cart.cartTotalQuantity ?? 0}</p>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/wishlist"
-                    className="dark:text-white text-gray-800 flex items-center space-x-2 focus:outline-none focus:ring-2 focus:ring-gray-800 hover:underline"
-                  >
-                    <div>
-                      <WishList
-                        width="1em"
-                        height="1em"
-                        className="svg text-2xl fill-stroke hover:text-red-500 hover:fill-current transition ease-in-out"
-                      />
-                    </div>
-                    <p className="text-base">Wishlist</p>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        </nav>
       </div>
-    </div>
+    </>
   );
 }
 

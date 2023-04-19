@@ -12,7 +12,7 @@ function Main() {
   const dispatch = useDispatch();
   const navigateTo = useNavigate();
   const { data } = useGetAllProductsQuery();
-  const state = useSelector((state: RootState) => state.wishlist);
+  const state = useSelector((state: RootState) => state.wishlistReducer);
 
   const renderList =
     data &&

@@ -13,7 +13,7 @@ import { ProductModel } from "../components/types";
 import { useEffect } from "react";
 
 function Cart() {
-  const cart = useSelector((state: RootState) => state.cart);
+  const cart = useSelector((state: RootState) => state.cartReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function Cart() {
   };
 
   return (
-    <div className="cart-container">
+    <div className="cart-container container">
       <h2>Shopping Cart</h2>
       {cart.cartTotalQuantity === 0 ? (
         <div className="cart-empty text-center">

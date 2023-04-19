@@ -6,14 +6,14 @@ import { ProductModel } from "../components/types";
 import { useEffect } from "react";
 import {
   clearWishlist,
-  RemoveFromWishlist,
+  removeFromWishlist,
   getTotals,
-  RemoveFromWishlistAfterAddToCart,
+  removeFromWishlistAfterAddToCart,
 } from "../redux/WishlistSlice";
 import { addToCart } from "../redux/CartSlice";
 
 function Wishlist() {
-  const wishlist = useSelector((state: RootState) => state.wishlist);
+  const wishlist = useSelector((state: RootState) => state.wishlistReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -22,11 +22,11 @@ function Wishlist() {
 
   const handleAddToCarFromWishlist = (wishlistItem: ProductModel) => {
     dispatch(addToCart(wishlistItem));
-    dispatch(RemoveFromWishlistAfterAddToCart(wishlistItem));
+    dispatch(removeFromWishlistAfterAddToCart(wishlistItem));
   };
 
-  const handleRemoveFromWishlist = (wishlistItem: ProductModel) => {
-    dispatch(RemoveFromWishlist(wishlistItem));
+  const handleremoveFromWishlist = (wishlistItem: ProductModel) => {
+    dispatch(removeFromWishlist(wishlistItem));
   };
 
   const handleClearWishlist = () => {
@@ -34,7 +34,7 @@ function Wishlist() {
   };
 
   return (
-    <div className="wishlist-container">
+    <div className="wishlist-container container">
       <h2>Wishlist</h2>
       {wishlist.wishlistTotalQuantity === 0 ? (
         <div className="wishlist-empty text-center">
@@ -65,7 +65,7 @@ function Wishlist() {
                     <h3>{wishlistItem.title}</h3>
                     <p>{wishlistItem.description}</p>
                     <button
-                      onClick={() => handleRemoveFromWishlist(wishlistItem)}
+                      onClick={() => handleremoveFromWishlist(wishlistItem)}
                     >
                       Remove
                     </button>
